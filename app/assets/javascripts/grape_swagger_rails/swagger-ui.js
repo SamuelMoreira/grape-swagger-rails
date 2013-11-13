@@ -1559,18 +1559,10 @@ templates['status_code'] = template(function (Handlebars,depth0,helpers,partials
       if (error_free) {
         map = {};
         _ref = form.serializeArray();
- 
-        _ref1 = this.model.parameters;
- 
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           o = _ref[_i];
           if ((o.value != null) && jQuery.trim(o.value).length > 0) {
-            if (_ref1[_i].allowMultiple) {
-              map[o.name] = o.value.split(",");
-            } else {
-              map[o.name] = o.value;
-            }
-          }
+            map[o.name] = o.value.split(",");          }
         }
         isFileUpload = form.children().find('input[type~="file"]').size() !== 0;
         isFormPost = false;
